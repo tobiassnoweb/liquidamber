@@ -26,21 +26,21 @@ const TrustSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-card">
+    <section className="section-padding bg-surface-container">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-primary/20 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary mb-6">
               <Shield className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Trust & Control</span>
+              <span className="text-sm font-medium text-secondary-foreground">Trust & Control</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
               Built for Trust,
               <br />
               <span className="text-gradient-amber">Control, and Accuracy</span>
@@ -49,7 +49,7 @@ const TrustSection = () => {
               Research demands confidence—not hallucinations. LiquidAmber is designed to work 
               only with the information you approve.
             </p>
-            <p className="text-xl font-semibold text-foreground">
+            <p className="text-xl font-medium text-foreground">
               You stay in control of your knowledge—how it's accessed, used, and shared.
             </p>
           </motion.div>
@@ -59,17 +59,17 @@ const TrustSection = () => {
             {trustFeatures.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-background border border-border card-hover"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="material-card"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center mb-4">
                   <feature.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
+                <h3 className="text-base font-medium mb-2">{feature.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>

@@ -20,7 +20,6 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    // Check for saved theme preference or system preference
     const savedTheme = localStorage.getItem("theme");
     const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     
@@ -50,19 +49,21 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass shadow-soft" : "bg-transparent"
+        isScrolled 
+          ? "bg-surface-container-low/95 backdrop-blur-md shadow-elevation-2" 
+          : "bg-transparent"
       }`}
     >
-      <nav className="container-wide py-4">
+      <nav className="container-wide py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img 
               src={logo} 
               alt="LiquidAmber" 
-              className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="h-9 w-auto transition-transform duration-200 group-hover:scale-105"
             />
             <span className="font-logo text-2xl font-semibold text-foreground">
               LiquidAmber
@@ -70,37 +71,32 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative text-sm font-medium transition-colors duration-200 hover:text-primary ${
-                  location.pathname === item.path ? "text-primary" : "text-foreground/80"
+                className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                  location.pathname === item.path 
+                    ? "bg-secondary text-secondary-foreground" 
+                    : "text-foreground/70 hover:text-foreground hover:bg-muted"
                 }`}
               >
                 {item.name}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
-                  />
-                )}
               </Link>
             ))}
           </div>
 
           {/* Right side actions */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
-            <Button variant="hero" size="lg">
+            <Button variant="hero">
               Request a Demo
             </Button>
           </div>
@@ -111,7 +107,6 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -133,14 +128,16 @@ const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden mt-4 pb-4"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-base font-medium transition-colors duration-200 ${
-                    location.pathname === item.path ? "text-primary" : "text-foreground/80"
+                  className={`px-4 py-3 rounded-2xl text-base font-medium transition-colors duration-200 ${
+                    location.pathname === item.path 
+                      ? "bg-secondary text-secondary-foreground" 
+                      : "text-foreground/70 hover:bg-muted"
                   }`}
                 >
                   {item.name}
