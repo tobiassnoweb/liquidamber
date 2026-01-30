@@ -8,41 +8,38 @@ const WhoWeAre = () => {
       name: "Eric Johnston",
       role: "Technology & Media Leader",
       bio: "A technology and media leader with 30+ years of experience building digital platforms that support high-impact knowledge work. Eric brings deep expertise in content systems, workflows, and long-term information stewardship.",
-      gradient: "from-primary to-amber-deep",
     },
     {
       name: "Tobias Törnqvist",
       role: "Product & Frontend Architecture",
       bio: "Product and frontend architecture leader specializing in AI-driven systems that transform complex data into intuitive, decision-ready experiences. Proven track record delivering production LLM platforms with real-world impact.",
-      gradient: "from-amber-glow to-primary",
     },
     {
       name: "Benoit Marsot",
       role: "Full-Stack Engineer & System Architect",
       bio: "Full-stack engineer and system architect focused on backend platforms, AI orchestration, and distributed systems. Creator of the core LiquidAmber platform architecture, including multi-provider LLM routing, RAG pipelines, and policy-enforced APIs.",
-      gradient: "from-primary to-amber-glow",
     },
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-24">
+      <main className="pt-20">
         {/* Hero Section */}
-        <section className="section-padding bg-hero-gradient relative overflow-hidden">
+        <section className="section-padding bg-background relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/20 rounded-full blur-3xl" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/30 rounded-full blur-[80px]" />
           </div>
           
           <div className="container-wide relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="max-w-3xl mx-auto text-center"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
                 Who <span className="text-gradient-amber">We Are</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
@@ -53,25 +50,22 @@ const WhoWeAre = () => {
         </section>
 
         {/* Team Section */}
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-surface-container">
           <div className="container-wide">
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6">
               {team.map((member, index) => (
                 <motion.div
                   key={member.name}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="group"
                 >
-                  <div className="relative p-8 rounded-3xl bg-card border border-border overflow-hidden card-hover h-full">
-                    {/* Gradient accent */}
-                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${member.gradient}`} />
-                    
+                  <div className="relative p-8 rounded-3xl bg-card shadow-elevation-2 hover:shadow-elevation-4 transition-all h-full">
                     {/* Avatar placeholder */}
-                    <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 mx-auto">
-                      <span className="text-3xl font-bold text-primary">
+                    <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center mb-6 mx-auto">
+                      <span className="text-2xl font-bold text-primary">
                         {member.name.split(" ").map(n => n[0]).join("")}
                       </span>
                     </div>
@@ -89,16 +83,16 @@ const WhoWeAre = () => {
         </section>
 
         {/* Mission Section */}
-        <section className="section-padding bg-card">
+        <section className="section-padding bg-background">
           <div className="container-narrow">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="text-center"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-tight">
                 Our <span className="text-gradient-amber">Mission</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">

@@ -26,16 +26,16 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-card">
+    <section className="section-padding bg-surface-container">
       <div className="container-wide">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
             Research Is <span className="text-gradient-amber">Slowing You Down</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
@@ -44,37 +44,37 @@ const ProblemSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {problems.map((problem, index) => (
             <motion.div
               key={problem.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-background border border-border card-hover"
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="material-card"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center mb-4">
                 <problem.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">{problem.title}</h3>
-              <p className="text-muted-foreground text-sm">{problem.description}</p>
+              <h3 className="text-lg font-medium mb-2">{problem.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{problem.description}</p>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <p className="text-xl font-medium text-foreground">
+          <p className="text-xl font-medium text-foreground mb-2">
             The work becomes about <span className="text-primary">finding information</span> instead of{" "}
             <span className="text-primary">understanding it</span>.
           </p>
-          <p className="text-2xl font-bold mt-4 text-gradient-amber">
+          <p className="text-2xl font-bold text-gradient-amber">
             That's where LiquidAmber comes in.
           </p>
         </motion.div>

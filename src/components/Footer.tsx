@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-surface-container-high border-t border-border">
       <div className="container-wide py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo and tagline */}
