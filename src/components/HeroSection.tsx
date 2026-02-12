@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/liquidamber-logo.png";
+import { Link } from "react-router-dom";
+import logo from "@/assets/logo.svg";
 
 const HeroSection = () => {
   return (
@@ -36,7 +37,9 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-primary" />
-            <span className="text-sm font-medium text-secondary-foreground">AI-Powered Research Assistant</span>
+            <span className="text-sm font-medium text-secondary-foreground">
+              AI-Powered Research Assistant
+            </span>
           </motion.div>
 
           {/* Main headline */}
@@ -68,9 +71,15 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col gap-1 mb-10"
           >
-            <p className="text-base text-muted-foreground">Smarter tools for deeper understanding.</p>
-            <p className="text-base text-muted-foreground">Unlock institutional knowledge.</p>
-            <p className="text-base text-muted-foreground">Go from question to insight in minutes, not days.</p>
+            <p className="text-base text-muted-foreground">
+              Smarter tools for deeper understanding.
+            </p>
+            <p className="text-base text-muted-foreground">
+              Unlock institutional knowledge.
+            </p>
+            <p className="text-base text-muted-foreground">
+              Go from question to insight in minutes, not days.
+            </p>
           </motion.div>
 
           {/* CTA Buttons */}
@@ -80,9 +89,11 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button variant="hero" size="xl" className="group">
-              Request a Demo
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            <Button asChild variant="hero" size="xl" className="group">
+              <Link to="/contact" className="inline-flex items-center">
+                Request a Demo
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
             <Button variant="hero-outline" size="xl">
               Learn More

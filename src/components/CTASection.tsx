@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -27,7 +28,9 @@ const CTASection = () => {
             Turn your existing knowledge into a living research engine.
           </p>
           <Button variant="hero" size="xl" className="group">
-            Request a Demo
+            <Link to="/contact" className="inline-flex items-center">
+              Request a Demo
+            </Link>
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>

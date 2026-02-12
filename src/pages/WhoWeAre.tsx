@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import tobiasPhoto from "@/assets/tobias.png";
+import benoitPhoto from "@/assets/benoit.png";
+import ericPhoto from "@/assets/eric.png";
+import joshPhoto from "@/assets/josh.jpg";
 
 const WhoWeAre = () => {
   const team = [
@@ -8,16 +13,26 @@ const WhoWeAre = () => {
       name: "Eric Johnston",
       role: "Technology & Media Leader",
       bio: "A technology and media leader with 30+ years of experience building digital platforms that support high-impact knowledge work. Eric brings deep expertise in content systems, workflows, and long-term information stewardship.",
+      image: ericPhoto,
     },
-    {
-      name: "Tobias Törnqvist",
-      role: "Product & Frontend Architecture",
-      bio: "Product and frontend architecture leader specializing in AI-driven systems that transform complex data into intuitive, decision-ready experiences. Proven track record delivering production LLM platforms with real-world impact.",
-    },
+
     {
       name: "Benoit Marsot",
       role: "Full-Stack Engineer & System Architect",
       bio: "Full-stack engineer and system architect focused on backend platforms, AI orchestration, and distributed systems. Creator of the core LiquidAmber platform architecture, including multi-provider LLM routing, RAG pipelines, and policy-enforced APIs.",
+      image: benoitPhoto,
+    },
+    {
+      name: "Tobias Törnqvist",
+      role: "UI & Product Design",
+      bio: "Product and frontend architecture leader specializing in AI-driven systems that transform complex data into intuitive, decision-ready experiences. Proven track record delivering production LLM platforms with real-world impact.",
+      image: tobiasPhoto,
+    },
+    {
+      name: "Josh Price",
+      role: "System Architect & Infrastructure",
+      bio: "Product and engineering management, software architecture. Deep experience in healthcare and financial software, devops, and security.",
+      image: joshPhoto,
     },
   ];
 
@@ -31,7 +46,7 @@ const WhoWeAre = () => {
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/30 rounded-full blur-[80px]" />
           </div>
-          
+
           <div className="container-wide relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -52,7 +67,7 @@ const WhoWeAre = () => {
         {/* Team Section */}
         <section className="section-padding bg-surface-container">
           <div className="container-wide">
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-12">
               {team.map((member, index) => (
                 <motion.div
                   key={member.name}
@@ -63,17 +78,30 @@ const WhoWeAre = () => {
                   className="group"
                 >
                   <div className="relative p-8 rounded-3xl bg-card shadow-elevation-2 hover:shadow-elevation-4 transition-all h-full">
-                    {/* Avatar placeholder */}
-                    <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center mb-6 mx-auto">
-                      <span className="text-2xl font-bold text-primary">
-                        {member.name.split(" ").map(n => n[0]).join("")}
-                      </span>
+                    {/* Avatar */}
+                    <div className="w-32 h-32 rounded-full bg-secondary flex items-center justify-center mb-6 mx-auto">
+                      <Avatar className="h-32 w-32">
+                        {member.image ? (
+                          <AvatarImage src={member.image} alt={member.name} />
+                        ) : (
+                          <AvatarFallback>
+                            {member.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
+                          </AvatarFallback>
+                        )}
+                      </Avatar>
                     </div>
 
                     <div className="text-center">
                       <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                      <p className="text-sm text-primary font-medium mb-4">{member.role}</p>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
+                      <p className="text-sm text-primary font-medium mb-4">
+                        {member.role}
+                      </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {member.bio}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -96,9 +124,11 @@ const WhoWeAre = () => {
                 Our <span className="text-gradient-amber">Mission</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                We believe that the most valuable knowledge lives in the collective memory of organizations—
-                scattered across years of documents, decisions, and institutional wisdom. Our mission is 
-                to make that knowledge instantly accessible, verifiable, and actionable.
+                We believe that the most valuable knowledge lives in the
+                collective memory of organizations— scattered across years of
+                documents, decisions, and institutional wisdom. Our mission is
+                to make that knowledge instantly accessible, verifiable, and
+                actionable.
               </p>
             </motion.div>
           </div>
