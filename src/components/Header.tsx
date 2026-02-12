@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/liquidamber-logo.png";
+import logo from "@/assets/logo.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,8 +21,10 @@ const Header = () => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
+    const systemDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+
     if (savedTheme === "dark" || (!savedTheme && systemDark)) {
       setIsDark(true);
       document.documentElement.classList.add("dark");
@@ -51,8 +53,8 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-surface-container-low/95 backdrop-blur-md shadow-elevation-2" 
+        isScrolled
+          ? "bg-surface-container-low/95 backdrop-blur-md shadow-elevation-2"
           : "bg-transparent"
       }`}
     >
@@ -60,12 +62,15 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img 
-              src={logo} 
-              alt="LiquidAmber" 
+            <img
+              src={logo}
+              alt="LiquidAmber"
               className="h-9 w-auto transition-transform duration-200 group-hover:scale-105"
             />
-            <span className="font-logo text-2xl font-semibold text-foreground">
+            <span
+              className="font-logo text-2xl font-semibold text-foreground"
+              style={{ color: "#FFA201" }}
+            >
               LiquidAmber
             </span>
           </Link>
@@ -77,8 +82,8 @@ const Header = () => {
                 key={item.name}
                 to={item.path}
                 className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                  location.pathname === item.path 
-                    ? "bg-secondary text-secondary-foreground" 
+                  location.pathname === item.path
+                    ? "bg-secondary text-secondary-foreground"
                     : "text-foreground/70 hover:text-foreground hover:bg-muted"
                 }`}
               >
@@ -89,33 +94,39 @@ const Header = () => {
 
           {/* Right side actions */}
           <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-            >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <Button variant="ghost" size="icon" onClick={toggleTheme}>
+              {isDark ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
-            <Button variant="hero">
-              Request a Demo
+            <Button asChild variant="hero">
+              <Link to="/contact" className="inline-flex items-center">
+                Request a Demo
+              </Link>
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-            >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <Button variant="ghost" size="icon" onClick={toggleTheme}>
+              {isDark ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -135,16 +146,18 @@ const Header = () => {
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-4 py-3 rounded-2xl text-base font-medium transition-colors duration-200 ${
-                    location.pathname === item.path 
-                      ? "bg-secondary text-secondary-foreground" 
+                    location.pathname === item.path
+                      ? "bg-secondary text-secondary-foreground"
                       : "text-foreground/70 hover:bg-muted"
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button variant="hero" className="mt-2">
-                Request a Demo
+              <Button asChild variant="hero" className="mt-2">
+                <Link to="/contact" className="inline-flex items-center">
+                  Request a Demo
+                </Link>
               </Button>
             </div>
           </motion.div>

@@ -15,7 +15,8 @@ const SolutionSection = () => {
     {
       icon: MessageSquare,
       title: "Conversational Search",
-      description: "Ask questions across internal archives and knowledge bases in natural language.",
+      description:
+        "Ask questions across internal archives and knowledge bases in natural language.",
     },
     {
       icon: FileCheck,
@@ -30,27 +31,32 @@ const SolutionSection = () => {
     {
       icon: Layers,
       title: "Surface Related Material",
-      description: "Discover connections across years, categories, and platforms.",
+      description:
+        "Discover connections across years, categories, and platforms.",
     },
     {
       icon: FileText,
       title: "Generate Summaries",
-      description: "Create timelines, briefs, and follow-up questions automatically.",
+      description:
+        "Create timelines, briefs, and follow-up questions automatically.",
     },
     {
       icon: Users,
       title: "Identify Connections",
-      description: "Find key people, entities, and prior work connected to any topic.",
+      description:
+        "Find key people, entities, and prior work connected to any topic.",
     },
     {
       icon: FileEdit,
       title: "Draft Documents",
-      description: "Create research requests, inquiries, or documentation templates.",
+      description:
+        "Create research requests, inquiries, or documentation templates.",
     },
     {
       icon: Building,
       title: "Build on History",
-      description: "Create new work on top of verified historical and current information.",
+      description:
+        "Create new work on top of verified historical and current information.",
     },
   ];
 
@@ -65,15 +71,19 @@ const SolutionSection = () => {
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary mb-6">
-            <span className="text-sm font-medium text-secondary-foreground">The Solution</span>
+            <span className="text-sm font-medium text-secondary-foreground">
+              The Solution
+            </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
-            Research, <span className="text-gradient-amber">Accelerated with AI</span>
+            Research,{" "}
+            <span className="text-gradient-amber">Accelerated with AI</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            LiquidAmber is an AI-powered research assistant designed to support any knowledge-intensive 
-            workflow—policy analysis, investigations, academic research, compliance, strategy, intelligence, 
-            or content development.
+            LiquidAmber is an AI-powered research assistant designed to support
+            any knowledge-intensive workflow—policy analysis, investigations,
+            academic research, compliance, strategy, intelligence, or content
+            development.
           </p>
         </motion.div>
 
@@ -91,7 +101,9 @@ const SolutionSection = () => {
                 <feature.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-lg font-medium mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -105,7 +117,8 @@ const SolutionSection = () => {
         >
           <div className="inline-block px-8 py-5 rounded-3xl bg-secondary">
             <p className="text-2xl md:text-3xl font-bold">
-              What used to take <span className="text-muted-foreground line-through">hours</span>{" "}
+              What used to take{" "}
+              <span className="text-muted-foreground line-through">days</span>{" "}
               <span className="text-gradient-amber">now takes minutes</span>.
             </p>
           </div>

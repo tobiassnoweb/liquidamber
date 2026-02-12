@@ -6,22 +6,26 @@ const TrustSection = () => {
     {
       icon: Eye,
       title: "Source-Grounded Answers",
-      description: "Full transparency with every response. See exactly where information comes from.",
+      description:
+        "Full transparency with every response. See exactly where information comes from.",
     },
     {
       icon: Lock,
       title: "No Black-Box Training",
-      description: "Your content is never used to train models. Your data stays yours.",
+      description:
+        "Your content is never used to train models. Your data stays yours.",
     },
     {
       icon: Shield,
       title: "Clear Data Disclosure",
-      description: "Know exactly how your data is used, stored, and protected at all times.",
+      description:
+        "Know exactly how your data is used, stored, and protected at all times.",
     },
     {
       icon: FileCheck,
       title: "Audit-Ready Outputs",
-      description: "Suitable for professional and regulated environments with full traceability.",
+      description:
+        "Suitable for professional and regulated environments with full traceability.",
     },
   ];
 
@@ -38,7 +42,9 @@ const TrustSection = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary mb-6">
               <Shield className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-secondary-foreground">Trust & Control</span>
+              <span className="text-sm font-medium text-secondary-foreground">
+                Trust & Control
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
               Built for Trust,
@@ -46,12 +52,23 @@ const TrustSection = () => {
               <span className="text-gradient-amber">Control, and Accuracy</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Research demands confidence—not hallucinations. LiquidAmber is designed to work 
-              only with the information you approve.
+              Research demands confidence—not hallucinations. LiquidAmber is
+              designed to work only with the information you approve.
             </p>
             <p className="text-xl font-medium text-foreground">
-              You stay in control of your knowledge—how it's accessed, used, and shared.
+              You stay in control of your knowledge—how it's accessed, used, and
+              shared.
             </p>
+            {/* Testimonial */}
+            <blockquote className="mt-6 p-6 rounded-2xl bg-muted/60 border border-muted-foreground/10">
+              <p className="text-lg italic text-foreground/90">
+                "Researching enterprise articles normally takes days — with
+                LiquidAmber it now takes minutes or hours."
+              </p>
+              <cite className="block mt-4 text-sm font-semibold text-foreground">
+                Waylon Smart SNI, Southern Newspapers, Inc.
+              </cite>
+            </blockquote>
           </motion.div>
 
           {/* Right cards */}
@@ -69,7 +86,9 @@ const TrustSection = () => {
                   <feature.icon className="w-5 h-5 text-primary" />
                 </div>
                 <h3 className="text-base font-medium mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </div>
