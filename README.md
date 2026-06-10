@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
+# LiquidAmber — Marketing site (Vite + React + TypeScript)
 
-## Project info
+A Vite + React + TypeScript frontend using the shadcn/ui-style component set and Tailwind CSS. This repository contains the single-page marketing website and UI components used across the site.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Quick links**
 
-## How can I edit this code?
+- **Source:** [src](src)
+- **Main entry:** [src/main.tsx](src/main.tsx#L1)
+- **App component:** [src/App.tsx](src/App.tsx#L1)
 
-There are several ways of editing your application.
+**Requirements**
 
-**Use Lovable**
+- Node compatible runtime. This project works with `bun`, `npm`, or `pnpm`.
+- Recommended Node.js >= 18 or Bun.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+**Install**
+Install dependencies using your package manager of choice. Examples:
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+# using bun (preferred if you have bun installed)
+bun install
 
-**Use your preferred IDE**
+# or using npm
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# or using pnpm
+pnpm install
 ```
 
-**Edit a file directly in GitHub**
+**Development**
+Run the local dev server with hot reload:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run dev
+# or
+bun run dev
+# or
+pnpm run dev
+```
 
-**Use GitHub Codespaces**
+Open http://localhost:5173 in your browser (Vite default).
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+**Build**
+Create an optimized production build:
 
-## What technologies are used for this project?
+```bash
+npm run build
+# or
+bun run build
+```
 
-This project is built with:
+The build output is written to the `dist` directory by Vite.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Preview Production Build Locally**
+To preview the production build locally:
 
-## How can I deploy this project?
+```bash
+npm run preview
+# or
+bun run preview
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+**Testing**
+Run unit tests with Vitest:
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+npm run test
+# watch mode
+npm run test:watch
+```
 
-Yes, you can!
+**Lint**
+Run eslint across the project:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+npm run lint
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+**Environment / Configuration**
+
+- Tailwind configuration: [tailwind.config.ts](tailwind.config.ts)
+- Vite config: [vite.config.ts](vite.config.ts)
+- TypeScript configs: [tsconfig.json](tsconfig.json) and [tsconfig.app.json](tsconfig.app.json)
+
+**Deploy**
+This is a static Vite site — you can deploy the contents of the `dist` directory to any static hosting provider (Vercel, Netlify, Cloudflare Pages, GitHub Pages, S3 + CloudFront, etc.). Typical steps:
+
+```bash
+npm run build
+# then deploy the contents of the `dist` directory with your provider's tooling or via their UI
+```
+
+For Vercel: connect the repository and set the build command to `npm run build` and the output directory to `dist`.
+
+For Netlify: set the build command to `npm run build` and the publish directory to `dist`.
+
+**Contributing / Developing components**
+
+- UI components live under [src/components/ui](src/components/ui). Follow existing patterns when adding new components (TypeScript + React + Tailwind).
+- Routes and pages live under [src/pages](src/pages).
+
+**Useful commands (recap)**
+
+- Install: `bun install` / `npm install`
+- Dev server: `npm run dev`
+- Build: `npm run build`
+- Preview build: `npm run preview`
+- Test: `npm run test`
+- Lint: `npm run lint`
+
+If you want, I can also add a small deploy guide for a specific provider — tell me which one.
