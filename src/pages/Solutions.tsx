@@ -37,13 +37,13 @@ const Solutions = () => {
                 LiquidAmber's products form a unified ecosystem. Research begins
                 in Discover, insights are transformed into visual stories
                 through Describe, quality is ensured with Verify, and audiences
-                interact with trusted information through Engage.
+                interact with archived information through Engage.
               </p>
             </div>
 
             <div className="flex-1">
               <div className="flex items-center justify-center gap-3">
-                <span className="px-3 py-2 rounded-md bg-card text-sm">
+                <span className="px-3 py-2 rounded-md bg-card text-md">
                   Discover
                 </span>
                 <svg
@@ -68,7 +68,7 @@ const Solutions = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="px-3 py-2 rounded-md bg-card text-sm">
+                <span className="px-3 py-2 rounded-md bg-card text-md">
                   Describe
                 </span>
                 <svg
@@ -93,7 +93,7 @@ const Solutions = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="px-3 py-2 rounded-md bg-card text-sm">
+                <span className="px-3 py-2 rounded-md bg-card text-md">
                   Verify
                 </span>
                 <svg
@@ -118,7 +118,7 @@ const Solutions = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="px-3 py-2 rounded-md bg-card text-sm">
+                <span className="px-3 py-2 rounded-md bg-card text-md">
                   Engage
                 </span>
               </div>
@@ -129,7 +129,7 @@ const Solutions = () => {
           {products.map((p) => (
             <article
               key={p.id}
-              className="grid gap-6 md:grid-cols-2 items-center max-w-5xl mx-auto"
+              className="grid gap-6 md:grid-cols-2 items-center max-w-5xl mx-auto bg-card shadow-elevation-3 overflow-hidden hover:shadow-elevation-4 transition-shadow p-8 md:p-10 rounded-3xl"
             >
               <motion.div
                 initial={{ opacity: 0, x: -24 }}
@@ -147,7 +147,7 @@ const Solutions = () => {
 
                 <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {p.benefits.map((b, i) => (
-                    <li key={i} className="flex items-start gap-3">
+                    <li key={i} className="flex items-start gap-3 text-sm">
                       <span
                         className="w-3 h-3 mt-1 rounded-full bg-primary"
                         aria-hidden
@@ -191,8 +191,10 @@ const Solutions = () => {
             </article>
           ))}
         </section>
-        <section className="space-y-16">
-          <YouTubeEmbed />
+        <section className="space-y-16 mt-24">
+          <div className="max-w-5xl mx-auto bg-card p-8 md:p-10 rounded-3xl shadow-elevation-3">
+            <YouTubeEmbed />
+          </div>
         </section>
         {/** Image lightbox modal */}
         <ImageLightbox />

@@ -9,7 +9,7 @@ export const products = [
     title: "Discover",
     tagline: "Research Intelligence for Knowledge Professionals",
     description:
-      "Discover is LiquidAmber's flagship research platform for newsrooms, research institutions, and investigative teams — search, analyze, and synthesize information across large archives.",
+      "Discover is LiquidAmber's flagship research platform for newsrooms, research institutions, and investigative teams — quickly search, analyze, and synthesize information across large data-sets and historical archives.",
     benefits: [
       "Accelerates research workflows",
       "Surfaces relevant historical context",
@@ -23,12 +23,12 @@ export const products = [
     title: "Describe",
     tagline: "Turn Complex Data into Visual Stories",
     description:
-      "Describe transforms structured data into charts, timelines, and infographic-style content to explain trends, comparisons, and historical context.",
+      "Describe transforms structured data into charts, timelines, and infographic-style content to visually explain trends, comparisons, and historical context.",
     benefits: [
       "Rapid infographic generation",
       "Consistent visual storytelling",
       "Improved audience comprehension",
-      "Shareable, publication-ready outputs",
+      "Vector-based, publication-ready outputs",
     ],
     image: describe,
   },
@@ -37,11 +37,11 @@ export const products = [
     title: "Verify",
     tagline: "Quality Assurance Before Publication",
     description:
-      "Verify evaluates accuracy, ethics, style, and SEO to ensure content is publication-ready and trustworthy.",
+      "Verify evaluates accuracy, ethics, style, and SEO to ensure content is publication-ready and meets publication standards.",
     benefits: [
       "Fact-checking assistance",
-      "Bias and ethics review",
-      "Style-guide compliance",
+      "Author bias and ethics screening",
+      "AP Style Guide compliance",
       "SEO optimization recommendations",
     ],
     image: verify,
@@ -51,12 +51,12 @@ export const products = [
     title: "Engage",
     tagline: "Conversational Access to Trusted Knowledge",
     description:
-      "Engage delivers a fast, consumer-focused conversational experience built on the same trusted archives that power Discover.",
+      "Engage delivers a streamlined, consumer-facing conversational experience between readers and your archives, built on the same trusted platform that powers Discover.",
     benefits: [
-      "Natural language interaction",
-      "Fast answers from trusted archives",
+      "Natural language interaction with archives",
+      "Fast answers from published content",
       "Increased audience engagement",
-      "Simplified access to complex information",
+      "Complies with paywall and access plans",
     ],
     image: enagage,
   },
