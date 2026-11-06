@@ -4,6 +4,7 @@ import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.svg";
+import { trackNavigation, trackCTAClick } from "@/lib/trackingManager";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,7 +48,9 @@ const Header = () => {
     { name: "Who We Are", path: "/who-we-are" },
     { name: "Solutions", path: "/solutions" },
   ];
-
+  const trackNavClick = (itemName: string, itemPath: string) => {
+    trackNavigation(itemName, itemPath);
+  };
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -145,7 +148,10 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    trackNavClick(item.name, item.path);
+                  }}
                   className={`px-4 py-3 rounded-2xl text-base font-medium transition-colors duration-200 ${
                     location.pathname === item.path
                       ? "bg-secondary text-secondary-foreground"
@@ -156,7 +162,11 @@ const Header = () => {
                 </Link>
               ))}
               <Button asChild variant="hero" className="mt-2">
-                <Link to="/contact" className="inline-flex items-center">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center"
+                  onClick={() => trackCTAClick("Request a Demo", "/contact")}
+                >
                   Request a Demo
                 </Link>
               </Button>

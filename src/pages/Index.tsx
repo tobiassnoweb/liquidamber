@@ -8,8 +8,10 @@ import TechnologySection from "@/components/TechnologySection";
 import ROISection from "@/components/ROISection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 const Index = () => {
+  usePageTracking("Homepage");
   return (
     <div className="min-h-screen">
       <Header />
