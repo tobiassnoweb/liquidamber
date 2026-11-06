@@ -85,6 +85,9 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
+                onClick={() => {
+                  trackNavClick(item.name, item.path);
+                }}
                 className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                   location.pathname === item.path
                     ? "bg-secondary text-secondary-foreground"
@@ -105,8 +108,15 @@ const Header = () => {
                 <Moon className="h-5 w-5" />
               )}
             </Button>
-            <Button asChild variant="hero">
-              <Link to="/contact" className="inline-flex items-center">
+
+            <Button asChild variant="hero" className="mt-2">
+              <Link
+                to="/contact"
+                className="inline-flex items-center"
+                onClick={() => {
+                  trackCTAClick("Request a Demo", "/contact");
+                }}
+              >
                 Request a Demo
               </Link>
             </Button>
@@ -165,7 +175,9 @@ const Header = () => {
                 <Link
                   to="/contact"
                   className="inline-flex items-center"
-                  onClick={() => trackCTAClick("Request a Demo", "/contact")}
+                  onClick={() => {
+                    trackCTAClick("Request a Demo", "/contact");
+                  }}
                 >
                   Request a Demo
                 </Link>

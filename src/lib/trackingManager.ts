@@ -6,14 +6,19 @@
  * - CTA clicks (Request a demo)
  */
 
+import { url } from "inspector/promises";
+
 type EventParams = Record<string, string | number | boolean>;
 
 /**
  * Core tracking function using Google Analytics (gtag)
  */
-export const trackEvent = (eventName: string, params: EventParams = {}): void => {
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', eventName, params);
+export const trackEvent = (
+  eventName: string,
+  params: EventParams = {},
+): void => {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, params);
   }
 };
 
@@ -22,7 +27,8 @@ export const trackEvent = (eventName: string, params: EventParams = {}): void =>
  * Usage: Call this when users click on navigation links
  */
 export const trackNavigation = (pageName: string, url: string): void => {
-  trackEvent('navigation_click', {
+  console.log("tracking navigation click", { pageName, url });
+  trackEvent("navigation_click", {
     page_name: pageName,
     url: url,
     timestamp: new Date().toISOString(),
@@ -34,7 +40,8 @@ export const trackNavigation = (pageName: string, url: string): void => {
  * Usage: Attach to scroll event listener
  */
 export const trackScrollToBottom = (pageName: string): void => {
-  trackEvent('scroll_to_bottom', {
+  console.log("tracking scroll to bottom", { pageName });
+  trackEvent("scroll_to_bottom", {
     page_name: pageName,
     timestamp: new Date().toISOString(),
   });
@@ -45,7 +52,8 @@ export const trackScrollToBottom = (pageName: string): void => {
  * Usage: Call when users click on CTA buttons
  */
 export const trackCTAClick = (ctaName: string, pageName: string): void => {
-  trackEvent('cta_click', {
+  console.log("tracking CTA click", { ctaName, pageName });
+  trackEvent("cta_click", {
     cta_name: ctaName,
     page_name: pageName,
     timestamp: new Date().toISOString(),
@@ -75,11 +83,11 @@ export const initializeScrollTracking = (pageName: string): (() => void) => {
     }
   };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener("scroll", handleScroll, { passive: true });
 
   // Return cleanup function
   return () => {
-    window.removeEventListener('scroll', handleScroll);
+    window.removeEventListener("scroll", handleScroll);
   };
 };
 
@@ -100,7 +108,7 @@ export const initializePageTracking = (pageName: string): (() => void) => {
  * Usage: Call when page loads or route changes
  */
 export const trackPageView = (pageName: string, pagePath: string): void => {
-  trackEvent('page_view', {
+  trackEvent("page_view", {
     page_name: pageName,
     page_path: pagePath,
     timestamp: new Date().toISOString(),

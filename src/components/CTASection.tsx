@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { trackCTAClick } from "@/lib/trackingManager";
 const CTASection = () => {
   return (
     <section className="section-padding bg-surface-container relative overflow-hidden">
@@ -28,7 +28,13 @@ const CTASection = () => {
             Turn your existing knowledge into a living research engine.
           </p>
           <Button variant="hero" size="xl" className="group">
-            <Link to="/contact" className="inline-flex items-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center"
+              onClick={() => {
+                trackCTAClick("Request a Demo", "/contact");
+              }}
+            >
               Request a Demo
             </Link>
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
